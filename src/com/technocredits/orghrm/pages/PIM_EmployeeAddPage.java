@@ -3,6 +3,8 @@ package com.technocredits.orghrm.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.technocredits.orghrm.base.PredefinedActions;
@@ -199,13 +201,12 @@ public class PIM_EmployeeAddPage extends PredefinedActions {
 		return this;
 	}
 	
-	WebDriverWait wait2 = new WebDriverWait(driver, 60); // 1000 ms
+	//WebDriverWait wait2 = new WebDriverWait(driver, 120); // 1000 ms
 	
 	public String getEmployeeIDDetails() {
-		WebDriverWait wait = new WebDriverWait(driver, 60); // 1000 ms
-		String empname = driver.findElement(By.xpath("//span[@id='pim.navbar.employeeName']")).getText();
-		System.out.println(empname);
-		return empname;
+		WebDriverWait wait = new WebDriverWait(driver, 30); // 1000 ms
+		WebElement e = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@id='pim.navbar.employeeName']")));
+		return e.getText();
 	}
 }
 

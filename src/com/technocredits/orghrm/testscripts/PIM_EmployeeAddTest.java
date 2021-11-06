@@ -1,6 +1,8 @@
 package com.technocredits.orghrm.testscripts;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,9 +27,9 @@ public class PIM_EmployeeAddTest extends TestBase {
 		menuPage.navigateTo("PIM->Add Employee");
 		PIM_EmployeeAddPage pim_EmployeeAddPage = new PIM_EmployeeAddPage();
 		pim_EmployeeAddPage
-			.setFirstName("New")
+			.setFirstName("Chandni")
 			.setMiddleName("K")
-			.setLastName("Employee")
+			.setLastName("Fatehchandani")
 			.setLocation("Canadian Development Center")
 			.clickOnNext()
 			.setOtherID("0604")
@@ -59,11 +61,12 @@ public class PIM_EmployeeAddTest extends TestBase {
 			.clickOnSave()
 			.getEmployeeIDDetails();
 		
+
 		System.out.println("Verify saved Employee");
-		String expectedAddedEmployee = "New Employee";
+		String expectedAddedEmployee = "Chandni Fatehchandani";
 		String actualAddedEmployee = pim_EmployeeAddPage.getEmployeeIDDetails();
 		softAsset.assertEquals(actualAddedEmployee, expectedAddedEmployee, "The added employee do not match");
-
+		softAsset.assertAll();
 		System.out.println("Added employee verified");
 		}
 	

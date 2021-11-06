@@ -28,7 +28,7 @@ public class PredefinedActions {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		System.out.println("STEP - Enter url");
-		driver.get("https://octautomation-trials72.orangehrmlive.com/");
+		driver.get("https://chandnihrm-trials72.orangehrmlive.com/");
 		driver.manage().window().maximize();
 	}
 	
